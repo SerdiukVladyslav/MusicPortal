@@ -1,0 +1,114 @@
+﻿@model MusicPortal.Models.Albums
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('/Images/Slipknot-Corey-Taylor.jpg');
+        color: white;
+    }
+
+    h1 {
+        text-align: center;
+        color: white;
+    }
+
+    .album-cover {
+        width: 200px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .col-sm-2,
+    .col-sm-10 {
+        position: relative;
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+
+    .col-sm-2 {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+
+    .col-sm-10 {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        margin-top: 20px;
+    }
+
+    .btn-danger:hover {
+        background-color: #c82333;
+        color: white;
+    }
+
+    a {
+        color: #ffaa00;
+        margin-top: 10px;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: white;
+        text-decoration: underline;
+    }
+
+    .btn-primary {
+        background-color: #ffaa00;
+        color: #222;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #ffc107;
+        color: #222;
+        text-decoration: none;
+    }
+</style>
+
+<h1>Видалення</h1>
+
+<h3>Ви дійсно хочете видалити цей альбом?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Альбом
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Album)
+        </dd>
+        <dt class="col-sm-2">
+            Обкладинка альбому
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Url.Content(Model.AlbumCover)" alt="Album Cover" class="album-cover">
+        </dd>
+        <dt class="col-sm-2">
+            Рік
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Видалити" class="btn btn-danger" />
+    </form>
+</div>
+
+<div class="back-button-container">
+    <a asp-action="Index" class="btn btn-primary">Назад до списку</a>
+</div>

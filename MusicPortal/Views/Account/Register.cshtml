@@ -1,0 +1,99 @@
+﻿@model MusicPortal.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-image: url('/Images/Slipknot-Corey-Taylor.jpg');
+        color: white;
+    }
+
+    h1 {
+        color: white;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        color: white;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        background-color: #333;
+        color: white;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+        background-color: #444;
+        border-color: #ffaa00;
+        color: white;
+    }
+
+    input[type="submit"] {
+        background-color: #ffaa00;
+        color: #222;
+        border: none;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #ffc107;
+        color: #222;
+    }
+
+    .text-danger {
+        color: #dc3545;
+    }
+</style>
+
+<h1>Реєстрація</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Register">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label">Ім'я</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label">Прізвище</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Login" class="control-label">Логін</label>
+                <input asp-for="Login" class="form-control" />
+                <span asp-validation-for="Login" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">Пароль</label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PasswordConfirm" class="control-label">Підтвердження паролю</label>
+                <input asp-for="PasswordConfirm" class="form-control" />
+                <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Зареєструватись" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

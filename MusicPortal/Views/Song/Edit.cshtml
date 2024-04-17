@@ -1,0 +1,131 @@
+﻿@model MusicPortal.Models.Song
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('/Images/Slipknot-Corey-Taylor.jpg');
+        color: white;
+    }
+
+    h1 {
+        text-align: center;
+        color: white;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: #333;
+        color: white;
+    }
+
+    input[type="file"] {
+        margin-top: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #ffaa00;
+        color: #222;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #ffc107;
+    }
+
+    .back-action a {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ffaa00;
+        text-decoration: none;
+    }
+
+    .back-action a:hover {
+        color: #ffc107;
+    }
+
+    .btn-primary {
+        background-color: #ffaa00;
+        color: #222;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #ffc107;
+        color: #222;
+        text-decoration: none;
+    }
+</style>
+
+<h1>Редагування</h1>
+
+<form asp-controller="Song" asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="SongId" />
+    <div class="form-group">
+        <label asp-for="Title" class="control-label">Назва</label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="GenreId" class="control-label">Жанр</label>
+        <select asp-for="GenreId" class="form-control" asp-items="ViewBag.GenreId"></select>
+        <span asp-validation-for="GenreId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ArtistsId" class="control-label">Артист</label>
+        <select asp-for="ArtistsId" class="form-control" asp-items="ViewBag.ArtistsId"></select>
+        <span asp-validation-for="ArtistsId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="AlbumsId" class="control-label">Альбом</label>
+        <select asp-for="AlbumsId" class="form-control" asp-items="ViewBag.AlbumsId"></select>
+        <span asp-validation-for="AlbumsId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="CountryId" class="control-label">Країна</label>
+        <select asp-for="CountryId" class="form-control" asp-items="ViewBag.CountryId"></select>
+        <span asp-validation-for="CountryId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="MusicFile" class="control-label">Музичний файл</label>
+        <input type="file" asp-for="MusicFile" class="form-control" name="musicFile" />
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Зберегти" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Назад до списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

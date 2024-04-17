@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Музичний портал</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MusicPortal.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header style="background-color: #ffaa00;">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-color: #ffaa00; margin: 0; border: none;">
+            <div class="container-fluid" style="background-color: #ffaa00;">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Музичний портал</a>
+
+                @if (Context.Session.GetString("admin") != null)
+                {
+                    <a asp-controller="Song" asp-action="Create" class="navbar-brand">Додати пісню</a>
+                    <a asp-controller="Album" asp-action="Index" class="navbar-brand">Альбоми</a>
+                    <a asp-controller="Artist" asp-action="Index" class="navbar-brand">Артисти</a>
+                    <a asp-controller="Country" asp-action="Index" class="navbar-brand">Країни</a>
+                    <a asp-controller="Genre" asp-action="Index" class="navbar-brand">Жанри</a>
+                    <a asp-controller="Account" asp-action="Index" class="navbar-brand">Користувачі</a>
+                }
+
+                @if (Context.Session.GetString("User") != null)
+                {
+                    <a asp-controller="Song" asp-action="Create" class="navbar-brand">Додати пісню</a>
+                }
+
+                <a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="Register">Реєстрація</a>
+                @if (Context.Session.GetString("FirstName") == null)
+                {
+                    <a class="navbar-brand" asp-area="" asp-controller="Account" asp-action="Login">Вхід</a>
+                }
+                else
+                {
+                    <span class="navbar-brand">Вітаю, @Context.Session.GetString("FirstName")  @Context.Session.GetString("LastName")</span>
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Logout">Вихід</a>
+                }
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container" style="color: white;">
+            &copy; 2024 - MusicPortal <a asp-area="" asp-controller="Home"></a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

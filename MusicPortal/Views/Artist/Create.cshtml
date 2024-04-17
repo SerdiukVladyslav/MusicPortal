@@ -1,0 +1,104 @@
+﻿@model MusicPortal.Models.Artists
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('/Images/Slipknot-Corey-Taylor.jpg');
+        color: white;
+    }
+
+    h1 {
+        text-align: center;
+        color: #ffaa00;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: #333;
+        color: white;
+    }
+
+    input[type="file"] {
+        margin-top: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #ffaa00;
+        color: #222;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #ffc107;
+    }
+
+    .back-action a {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+        color: #ffaa00;
+        text-decoration: none;
+    }
+
+    .back-action a:hover {
+        color: #ffc107;
+    }
+
+    .btn-primary {
+        background-color: #ffaa00;
+        color: #222;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #ffc107;
+        color: #222;
+        text-decoration: none;
+    }
+</style>
+
+<h2>Артисти</h2>
+
+<form asp-action="Create" asp-controller="Artist" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Artist" class="control-label">Артист</label>
+        <input asp-for="Artist" class="form-control" />
+        <span asp-validation-for="Artist" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Додати" class="btn btn-primary" />
+    </div>
+</form>
+
+<div>
+    <a asp-controller="Artist" asp-action="Index" class="btn btn-primary">Назад до списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

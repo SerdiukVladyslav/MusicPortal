@@ -1,0 +1,140 @@
+﻿@model IndexViewModel
+
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-image: url('/Images/Slipknot-Corey-Taylor.jpg');
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .card-img-top {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-body {
+        text-align: center;
+    }
+
+    .action-button {
+        margin-bottom: 10px;
+    }
+
+    .sort-dropdown {
+        margin-bottom: 20px;
+        color: white;
+    }
+
+    .sort-dropdown form {
+        display: inline-block;
+    }
+
+    .sort-dropdown label {
+        margin-right: 10px;
+    }
+
+    .sort-dropdown select {
+        margin-right: 10px;
+    }
+
+    .sort-dropdown input {
+        margin-right: 10px;
+    }
+
+    .sort-dropdown a {
+        margin-right: 10px;
+        margin-bottom: 5px;
+        background-color: #ddd;
+        color: black;
+        padding: 2px;
+    }
+
+    .pagination a {
+        background-color: #ffaa00;
+        color: #222;
+        border: 1px solid #ffaa00;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .pagination a:hover {
+        background-color: #ffc107;
+        color: white;
+        text-decoration: none;
+    }
+</style>
+
+<div class="sort-dropdown">
+    <form asp-controller="Home" asp-action="Index" method="get">
+        <label for="sortBy">Сортувати за:</label>
+        <select id="sortBy" name="sortBy">
+            <option value="songTitle">Назва пісні</option>
+            <option value="albumTitle">Назва альбому</option>
+            <option value="albumYear">Рік випуску альбому</option>
+            <option value="artistName">Артист</option>
+            <option value="genreName">Жанр</option>
+            <option value="countryName">Країна</option>
+        </select>
+        <input type="submit" value="Застосувати">
+        <a asp-action="Index" class="btn btn-secondary">Скасувати сортування</a>
+    </form>
+</div>
+
+<div class="row">
+    @foreach (var song in Model.Songs)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="@Url.Content(song.Albums.AlbumCover)" alt="Album Cover">
+                <div class="card-body">
+                    <h5 class="card-title">@song.Title</h5>
+                    <p class="card-text"><strong>Виконавець/Гурт:</strong> @song.Artists.Artist</p>
+                    <p class="card-text"><strong>Альбом:</strong> @song.Albums.Album</p>
+                    <p class="card-text"><strong>Рік:</strong> @song.Albums.Year</p>
+                    <p class="card-text"><strong>Країна:</strong> @song.Countries.Country</p>
+                    <p class="card-text"><strong>Жанр:</strong> @song.Genre.Name</p>
+                    <audio controls>
+                        <source src="@Url.Content(song.MusicFile)" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                    <div>
+                        @if (Context.Session.GetString("admin") != null)
+                        {
+                            <a class="action-button" asp-controller="Song" asp-action="Edit" asp-route-id="@song.SongId">Редагувати</a>
+                            <a class="action-button" asp-controller="Song" asp-action="Delete" asp-route-id="@song.SongId">Видалити</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="pagination">
+    <p>
+        @if (Model.PageViewModel.HasPreviousPage)
+        {
+            <a asp-action="Index"
+               asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+               asp-route-sortBy="@ViewBag.SortBy" class="glyphicon glyphicon-chevron-left">
+                Попередня
+            </a>
+        }
+        @if (Model.PageViewModel.HasNextPage)
+        {
+            <a asp-action="Index"
+               asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+               asp-route-sortBy="@ViewBag.SortBy" class="glyphicon glyphicon-chevron-right">
+                Наступна
+            </a>
+        }
+    </p>
+</div>

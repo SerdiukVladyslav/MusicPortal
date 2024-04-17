@@ -1,0 +1,146 @@
+﻿@model IEnumerable<MusicPortal.Models.Albums>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    body {
+        background-image: url('/Images/Slipknot-Corey-Taylor.jpg');
+        color: white;
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        color: white;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    p {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    a {
+        color: #ffaa00;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: white;
+        text-decoration: underline;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .table th, .table td {
+        border: 1px solid #666;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .table th {
+        background-color: #333;
+        color: #ffaa00;
+    }
+
+    .table td {
+        background-color: #444;
+    }
+
+    .album-cover {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+    }
+
+    .action-links {
+        display: flex;
+        justify-content: center;
+    }
+
+    .action-links a {
+        margin-right: 10px;
+    }
+
+    .add-album {
+        background-color: #ffaa00;
+        color: #222;
+        border: 1px solid #ffaa00;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .add-album:hover {
+        background-color: #ffc107;
+        color: white;
+        text-decoration: none;
+    }
+
+    .btn-primary {
+        background-color: #ffaa00;
+        color: #222;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #ffc107;
+        color: #222;
+        text-decoration: none;
+    }
+</style>
+
+<h1>Альбоми</h1>
+
+<p>
+    <a asp-action="Create" class="add-album">Додати альбом</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Альбом
+            </th>
+            <th>
+                Обкладинка альбому
+            </th>
+            <th>
+                Рік
+            </th>
+            <th>
+                Дія
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th class="album-info">
+                    @Html.DisplayFor(modelItem => item.Album)
+                </th>
+                <td>
+                    <img src="@Url.Content(item.AlbumCover)" alt="Album Cover" class="album-cover">
+                </td>
+                <th class="album-info">
+                    @Html.DisplayFor(modelItem => item.Year)
+                </th>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Назад до списку</a>
+</div>
