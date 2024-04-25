@@ -4,10 +4,12 @@ namespace MusicPortal.Models
 {
     public class LoginModel
     {
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "LoginRequired")]
         public string? Login { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "PasswordRequired")]
         [DataType(DataType.Password)]
         public string? Password { get; set; }
     }

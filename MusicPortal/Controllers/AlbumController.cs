@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MusicPortal.Filters;
 using MusicPortal.Models;
 
 namespace MusicPortal.Controllers
 {
+    [Culture]
     public class AlbumController : Controller
     {
         private readonly MusicPortalContext _context;
@@ -17,12 +19,14 @@ namespace MusicPortal.Controllers
 
         public IActionResult Index()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             var albums = _context.Albums.ToList();
             return View(albums);
         }
 
         public IActionResult Create()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             return View(new Albums());
         }
 
@@ -48,6 +52,7 @@ namespace MusicPortal.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             if (id == null)
             {
                 return NotFound();
@@ -102,6 +107,7 @@ namespace MusicPortal.Controllers
 
         public async Task<IActionResult> Delete(int? id)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             if (id == null)
             {
                 return NotFound();

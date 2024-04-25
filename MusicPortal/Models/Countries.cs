@@ -6,8 +6,10 @@ namespace MusicPortal.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Поле 'Country' обов'язкове для заповнення")]
-        [StringLength(100, ErrorMessage = "Назва країни повинна містити від 1 до 100 символів", MinimumLength = 1)]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "CountryRequired")]
+        [StringLength(100, ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "CountryLength", MinimumLength = 1)]
         public string Country { get; set; }
 
         public List<Song> Songs { get; set; }

@@ -3,9 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MusicPortal.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using MusicPortal.Filters;
 
 namespace MusicPortal.Controllers
 {
+    [Culture]
     public class SongController : Controller
     {
         private readonly MusicPortalContext _context;
@@ -33,6 +35,7 @@ namespace MusicPortal.Controllers
         // GET: Song/Create
         public IActionResult Create()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             var song = new Song();
             ViewBag.GenreId = new SelectList(_context.Genres, "Id", "Name");
             ViewBag.ArtistsId = new SelectList(_context.Artists, "Id", "Artist");
@@ -76,6 +79,7 @@ namespace MusicPortal.Controllers
         // GET: Song/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             if (id == null)
             {
                 return NotFound();
@@ -148,6 +152,7 @@ namespace MusicPortal.Controllers
         // GET: Song/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             if (id == null)
             {
                 return NotFound();

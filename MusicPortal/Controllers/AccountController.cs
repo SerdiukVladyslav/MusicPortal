@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
+using MusicPortal.Filters;
 using MusicPortal.Models;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace MusicPortal.Controllers
 {
+    [Culture]
     public class AccountController : Controller
     {
         private readonly MusicPortalContext _context;
@@ -18,6 +20,7 @@ namespace MusicPortal.Controllers
 
         public IActionResult Index()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             var users = _context.Users.ToList();
             return View(users);
         }
@@ -25,6 +28,7 @@ namespace MusicPortal.Controllers
         //[HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             if (id == null)
             {
                 return NotFound();
@@ -80,6 +84,7 @@ namespace MusicPortal.Controllers
 
         public async Task<IActionResult> Delete(int? id)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             if (id == null)
             {
                 return NotFound();
@@ -111,6 +116,7 @@ namespace MusicPortal.Controllers
 
         public ActionResult Login()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             return View();
         }
 
@@ -122,22 +128,20 @@ namespace MusicPortal.Controllers
             {
                 if (_context.Users.ToList().Count == 0)
                 {
-                    ModelState.AddModelError("", "Невірний логін або пароль!");
+                    ModelState.AddModelError("", Resources.Resource.InvalidLoginPassword);
                     return View(logon);
                 }
                 var users = _context.Users.Where(a => a.Login == logon.Login);
                 if (users.ToList().Count == 0)
                 {
-                    ModelState.AddModelError("", "Невірний логін або пароль!");
+                    ModelState.AddModelError("", Resources.Resource.InvalidLoginPassword);
                     return View(logon);
                 }
                 var user = users.First();
                 string? salt = user.Salt;
-
-                //переводим пароль в байт-массив  
+ 
                 byte[] password = Encoding.Unicode.GetBytes(salt + logon.Password);
 
-                //вычисляем хеш-представление в байтах  
                 byte[] byteHash = SHA256.HashData(password);
 
                 StringBuilder hash = new StringBuilder(byteHash.Length);
@@ -146,7 +150,7 @@ namespace MusicPortal.Controllers
 
                 if (user.Password != hash.ToString())
                 {
-                    ModelState.AddModelError("", "Невірний логін або пароль!");
+                    ModelState.AddModelError("", Resources.Resource.InvalidLoginPassword);
                     return View(logon);
                 }
 
@@ -181,6 +185,7 @@ namespace MusicPortal.Controllers
 
         public IActionResult Register()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             return View();
         }
 
@@ -193,7 +198,7 @@ namespace MusicPortal.Controllers
                 var existingUser = _context.Users.FirstOrDefault(u => u.Login == reg.Login);
                 if (existingUser != null)
                 {
-                    ModelState.AddModelError("Login", "Користувач з таким логіном вже існує.");
+                    ModelState.AddModelError("Login", Resources.Resource.UserExists);
                     return View(reg);
                 }
 
@@ -212,10 +217,8 @@ namespace MusicPortal.Controllers
                     sb.Append(string.Format("{0:X2}", saltbuf[i]));
                 string salt = sb.ToString();
 
-                //переводим пароль в байт-массив  
                 byte[] password = Encoding.Unicode.GetBytes(salt + reg.Password);
 
-                //вычисляем хеш-представление в байтах  
                 byte[] byteHash = SHA256.HashData(password);
 
                 StringBuilder hash = new StringBuilder(byteHash.Length);

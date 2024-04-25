@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<MusicPortal.Models.Genre>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewBag.Title = Resources.Resource.Genres;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -92,19 +92,19 @@
     }
 </style>
 
-<h1>Жанри</h1>
+<h1>@Resources.Resource.Genres</h1>
 
 <p>
-    <a asp-action="Create" class="add-genre">Додати жанр</a>
+    <a asp-action="Create" class="add-genre">@Resources.Resource.AddGenre</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Жанр
+                @Resources.Resource.GenreName
             </th>
             <th>
-                Дія
+                @Resources.Resource.Action
             </th>
         </tr>
     </thead>
@@ -115,8 +115,8 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Редагувати</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">@Resources.Resource.Edit</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">@Resources.Resource.Delete</a>
             </td>
         </tr>
 }
@@ -124,5 +124,5 @@
 </table>
 
 <div>
-    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Назад до списку</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">@Resources.Resource.BackToList</a>
 </div>

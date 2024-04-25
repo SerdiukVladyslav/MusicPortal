@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<User>
 
 @{
-    ViewData["Title"] = "Users";
+    ViewBag.Title = Resources.Resource.Users;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -92,14 +92,14 @@
     }
 </style>
 
-<h1>Користувачі</h1>
+<h1>@Resources.Resource.Users</h1>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Ім'я</th>
-            <th>Прізвище</th>
-            <th>Дія</th>
+            <th>@Resources.Resource.FirstName</th>
+            <th>@Resources.Resource.LastName</th>
+            <th>@Resources.Resource.Action</th>
         </tr>
     </thead>
     <tbody>
@@ -109,8 +109,8 @@
                 <td>@user.FirstName</td>
                 <td>@user.LastName</td>
                 <td>
-                    <a asp-controller="Account" asp-action="Edit" asp-route-id="@user.Id">Редагувати</a> |
-                    <a asp-controller="Account" asp-action="Delete" asp-route-id="@user.Id">Видалити</a>
+                    <a asp-controller="Account" asp-action="Edit" asp-route-id="@user.Id">@Resources.Resource.Edit</a> |
+                    <a asp-controller="Account" asp-action="Delete" asp-route-id="@user.Id">@Resources.Resource.Delete</a>
                 </td>
             </tr>
         }
@@ -118,5 +118,5 @@
 </table>
 
 <div>
-    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Назад до списку</a>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">@Resources.Resource.BackToList</a>
 </div>

@@ -1,7 +1,7 @@
 ﻿@model IndexViewModel
 
 @{
-    ViewData["Title"] = "Home";
+    ViewBag.Title = Resources.Resource.MusicPortal;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -74,17 +74,17 @@
 
 <div class="sort-dropdown">
     <form asp-controller="Home" asp-action="Index" method="get">
-        <label for="sortBy">Сортувати за:</label>
+        <label for="sortBy">@Resources.Resource.SortBy:</label>
         <select id="sortBy" name="sortBy">
-            <option value="songTitle">Назва пісні</option>
-            <option value="albumTitle">Назва альбому</option>
-            <option value="albumYear">Рік випуску альбому</option>
-            <option value="artistName">Артист</option>
-            <option value="genreName">Жанр</option>
-            <option value="countryName">Країна</option>
+            <option value="songTitle">@Resources.Resource.SongSort</option>
+            <option value="albumTitle">@Resources.Resource.AlbumSort</option>
+            <option value="albumYear">@Resources.Resource.YearSort</option>
+            <option value="artistName">@Resources.Resource.ArtistName</option>
+            <option value="genreName">@Resources.Resource.GenreName</option>
+            <option value="countryName">@Resources.Resource.CountryName</option>
         </select>
-        <input type="submit" value="Застосувати">
-        <a asp-action="Index" class="btn btn-secondary">Скасувати сортування</a>
+        <input type="submit" value="@Resources.Resource.SubmitSort">
+        <a asp-action="Index" class="btn btn-secondary">@Resources.Resource.CancelSort</a>
     </form>
 </div>
 
@@ -96,11 +96,11 @@
                 <img class="card-img-top" src="@Url.Content(song.Albums.AlbumCover)" alt="Album Cover">
                 <div class="card-body">
                     <h5 class="card-title">@song.Title</h5>
-                    <p class="card-text"><strong>Виконавець/Гурт:</strong> @song.Artists.Artist</p>
-                    <p class="card-text"><strong>Альбом:</strong> @song.Albums.Album</p>
-                    <p class="card-text"><strong>Рік:</strong> @song.Albums.Year</p>
-                    <p class="card-text"><strong>Країна:</strong> @song.Countries.Country</p>
-                    <p class="card-text"><strong>Жанр:</strong> @song.Genre.Name</p>
+                    <p class="card-text"><strong>@Resources.Resource.ArtistHome:</strong> @song.Artists.Artist</p>
+                    <p class="card-text"><strong>@Resources.Resource.AlbumName:</strong> @song.Albums.Album</p>
+                    <p class="card-text"><strong>@Resources.Resource.AlbumYear:</strong> @song.Albums.Year</p>
+                    <p class="card-text"><strong>@Resources.Resource.CountryName:</strong> @song.Countries.Country</p>
+                    <p class="card-text"><strong>@Resources.Resource.GenreName:</strong> @song.Genre.Name</p>
                     <audio controls>
                         <source src="@Url.Content(song.MusicFile)" type="audio/mpeg">
                         Your browser does not support the audio element.
@@ -108,8 +108,8 @@
                     <div>
                         @if (Context.Session.GetString("admin") != null)
                         {
-                            <a class="action-button" asp-controller="Song" asp-action="Edit" asp-route-id="@song.SongId">Редагувати</a>
-                            <a class="action-button" asp-controller="Song" asp-action="Delete" asp-route-id="@song.SongId">Видалити</a>
+                            <a class="action-button" asp-controller="Song" asp-action="Edit" asp-route-id="@song.SongId">@Resources.Resource.Edit</a>
+                            <a class="action-button" asp-controller="Song" asp-action="Delete" asp-route-id="@song.SongId">@Resources.Resource.Delete</a>
                         }
                     </div>
                 </div>
@@ -125,7 +125,7 @@
             <a asp-action="Index"
                asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
                asp-route-sortBy="@ViewBag.SortBy" class="glyphicon glyphicon-chevron-left">
-                Попередня
+                @Resources.Resource.PreviousPagination
             </a>
         }
         @if (Model.PageViewModel.HasNextPage)
@@ -133,7 +133,7 @@
             <a asp-action="Index"
                asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
                asp-route-sortBy="@ViewBag.SortBy" class="glyphicon glyphicon-chevron-right">
-                Наступна
+                @Resources.Resource.NextPagination
             </a>
         }
     </p>

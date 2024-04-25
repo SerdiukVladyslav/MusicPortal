@@ -1,7 +1,7 @@
 ﻿@model MusicPortal.Models.Artists
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewBag.Title = Resources.Resource.Edit;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -82,23 +82,23 @@
     }
 </style>
 
-<h1>Редагування</h1>
+<h1>@Resources.Resource.Edit</h1>
 
 <form asp-controller="Artist" asp-action="Edit" method="post" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="Id" />
     <div class="form-group">
-        <label asp-for="Artist" class="control-label">Артист</label>
+        <label asp-for="Artist" class="control-label">@Resources.Resource.ArtistName</label>
         <input asp-for="Artist" class="form-control" />
         <span asp-validation-for="Artist" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <input type="submit" value="Зберегти" class="btn btn-primary" />
+        <input type="submit" value="@Resources.Resource.SaveButton" class="btn btn-primary" />
     </div>
 </form>
 
 <div>
-    <a asp-controller="Artist" asp-action="Index" class="btn btn-primary">Назад до списку</a>
+    <a asp-controller="Artist" asp-action="Index" class="btn btn-primary">@Resources.Resource.BackToList</a>
 </div>
 
 @section Scripts {

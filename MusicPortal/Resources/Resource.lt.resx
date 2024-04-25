@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessLevel" xml:space="preserve">
+    <value>Prieigos lygis</value>
+  </data>
+  <data name="AccessLevelLength" xml:space="preserve">
+    <value>Prieigos lygis turi būti 0, 1 arba 2</value>
+  </data>
+  <data name="AccessLevelRequired" xml:space="preserve">
+    <value>Laukas „Prieigos lygis“ yra privalomas</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Veiksmas</value>
+  </data>
+  <data name="AddAlbum" xml:space="preserve">
+    <value>Pridėti albumą</value>
+  </data>
+  <data name="AddArtist" xml:space="preserve">
+    <value>Pridėti atlikėją</value>
+  </data>
+  <data name="AddButton" xml:space="preserve">
+    <value>Pridėti</value>
+  </data>
+  <data name="AddCountry" xml:space="preserve">
+    <value>Pridėti šalį</value>
+  </data>
+  <data name="AddGenre" xml:space="preserve">
+    <value>Pridėti žanrą</value>
+  </data>
+  <data name="AddSong" xml:space="preserve">
+    <value>Pridėti dainą</value>
+  </data>
+  <data name="AlbumConfirm" xml:space="preserve">
+    <value>Ar tikrai norite ištrinti šį albumą?</value>
+  </data>
+  <data name="AlbumCover" xml:space="preserve">
+    <value>Albumo viršelis</value>
+  </data>
+  <data name="AlbumLength" xml:space="preserve">
+    <value>Albumo pavadinimą turi sudaryti nuo 1 iki 100 simbolių</value>
+  </data>
+  <data name="AlbumName" xml:space="preserve">
+    <value>Albumas</value>
+  </data>
+  <data name="AlbumRequired" xml:space="preserve">
+    <value>Laukas „Albumas“ yra privalomas</value>
+  </data>
+  <data name="Albums" xml:space="preserve">
+    <value>Albumai</value>
+  </data>
+  <data name="AlbumSort" xml:space="preserve">
+    <value>Albumo pavadinimas</value>
+  </data>
+  <data name="AlbumYear" xml:space="preserve">
+    <value>Metai</value>
+  </data>
+  <data name="ArtistConfirm" xml:space="preserve">
+    <value>Ar tikrai norite pašalinti šį atlikėją?</value>
+  </data>
+  <data name="ArtistHome" xml:space="preserve">
+    <value>Atlikėjas/Grupė</value>
+  </data>
+  <data name="ArtistLength" xml:space="preserve">
+    <value>Atlikėjo vardą turi sudaryti nuo 1 iki 100 simbolių</value>
+  </data>
+  <data name="ArtistName" xml:space="preserve">
+    <value>Atlikėjas</value>
+  </data>
+  <data name="ArtistRequired" xml:space="preserve">
+    <value>Laukelis „Atlikėjas“ yra privalomas</value>
+  </data>
+  <data name="Artists" xml:space="preserve">
+    <value>Atlikėjai</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Grįžti į sąrašą</value>
+  </data>
+  <data name="CancelSort" xml:space="preserve">
+    <value>Atšaukti rūšiavimą</value>
+  </data>
+  <data name="ChooseLang" xml:space="preserve">
+    <value>Pasirinkite kalbą</value>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>Šalys</value>
+  </data>
+  <data name="CountryConfirm" xml:space="preserve">
+    <value>Ar tikrai norite pašalinti šią šalį?</value>
+  </data>
+  <data name="CountryLength" xml:space="preserve">
+    <value>Šalies pavadinimą turi sudaryti nuo 1 iki 100 simbolių</value>
+  </data>
+  <data name="CountryName" xml:space="preserve">
+    <value>Šalis</value>
+  </data>
+  <data name="CountryRequired" xml:space="preserve">
+    <value>Laukas „Šalis“ yra privalomas</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Pašalinti</value>
+  </data>
+  <data name="DeleteButton" xml:space="preserve">
+    <value>Pašalinti</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Redaguoti</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Vardas</value>
+  </data>
+  <data name="FirstNameRequired" xml:space="preserve">
+    <value>Laukas „Vardas“ yra privalomas</value>
+  </data>
+  <data name="GenreConfirm" xml:space="preserve">
+    <value>Ar tikrai norite ištrinti šį žanrą?</value>
+  </data>
+  <data name="GenreLength" xml:space="preserve">
+    <value>Žanro pavadinimą turi sudaryti nuo 1 iki 100 simbolių</value>
+  </data>
+  <data name="GenreName" xml:space="preserve">
+    <value>Žanras</value>
+  </data>
+  <data name="GenreRequired" xml:space="preserve">
+    <value>Laukas „Žanras“ yra privalomas</value>
+  </data>
+  <data name="Genres" xml:space="preserve">
+    <value>Žanrai</value>
+  </data>
+  <data name="Introduce" xml:space="preserve">
+    <value>Sveiki,</value>
+  </data>
+  <data name="InvalidLoginPassword" xml:space="preserve">
+    <value>Neteisingas prisijungimas arba slaptažodis!</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Pavardė</value>
+  </data>
+  <data name="LastNameRequired" xml:space="preserve">
+    <value>Laukas „Pavardė“ yra privalomas</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Prisijungimas</value>
+  </data>
+  <data name="LoginButton" xml:space="preserve">
+    <value>Prisijungti</value>
+  </data>
+  <data name="LoginRequired" xml:space="preserve">
+    <value>Laukas „Prisijungimas“ yra privalomas</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Įėjimas</value>
+  </data>
+  <data name="MusicFile" xml:space="preserve">
+    <value>Muzikos failas</value>
+  </data>
+  <data name="MusicPortal" xml:space="preserve">
+    <value>Muzikos portalas</value>
+  </data>
+  <data name="NextPagination" xml:space="preserve">
+    <value>Kitas</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Slaptažodis</value>
+  </data>
+  <data name="PasswordCompare" xml:space="preserve">
+    <value>Slaptažodžiai nesutampa!</value>
+  </data>
+  <data name="PasswordConfirm" xml:space="preserve">
+    <value>Slaptažodžio patvirtinimas</value>
+  </data>
+  <data name="PasswordConfirmRequired" xml:space="preserve">
+    <value>Laukas „Slaptažodžio patvirtinimas“ yra privalomas</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Laukas „Slaptažodis“ yra privalomas</value>
+  </data>
+  <data name="PreviousPagination" xml:space="preserve">
+    <value>Ankstesnis</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registracija</value>
+  </data>
+  <data name="RegisterButton" xml:space="preserve">
+    <value>Registruotis</value>
+  </data>
+  <data name="SaveButton" xml:space="preserve">
+    <value>Išsaugoti</value>
+  </data>
+  <data name="SongConfirm" xml:space="preserve">
+    <value>Ar tikrai norite ištrinti šią dainą?</value>
+  </data>
+  <data name="Songs" xml:space="preserve">
+    <value>Dainos</value>
+  </data>
+  <data name="SongSort" xml:space="preserve">
+    <value>Dainos pavadinimas</value>
+  </data>
+  <data name="SongTitle" xml:space="preserve">
+    <value>Pavadinimas</value>
+  </data>
+  <data name="SortBy" xml:space="preserve">
+    <value>Rūšiuoti pagal</value>
+  </data>
+  <data name="SubmitSort" xml:space="preserve">
+    <value>Taikyti</value>
+  </data>
+  <data name="TitleLength" xml:space="preserve">
+    <value>Dainos pavadinimą turi sudaryti nuo 1 iki 100 simbolių</value>
+  </data>
+  <data name="TitleRequired" xml:space="preserve">
+    <value>Laukas „Pavadinimas“ yra privalomas</value>
+  </data>
+  <data name="UserConfirm" xml:space="preserve">
+    <value>Ar tikrai norite ištrinti šį naudotoją?</value>
+  </data>
+  <data name="UserExists" xml:space="preserve">
+    <value>Vartotojas su šiuo prisijungimu jau yra!</value>
+  </data>
+  <data name="UserLogin" xml:space="preserve">
+    <value>Prisijungimo vardas</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Vartotojai</value>
+  </data>
+  <data name="YearLength" xml:space="preserve">
+    <value>Išleidimo metai turi būti nuo 1900 iki 2024 m.</value>
+  </data>
+  <data name="YearRequired" xml:space="preserve">
+    <value>Laukas „Metai“ yra privalomas</value>
+  </data>
+  <data name="YearSort" xml:space="preserve">
+    <value>Albumo išleidimo metai</value>
+  </data>
+</root>

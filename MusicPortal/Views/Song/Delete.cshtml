@@ -2,7 +2,7 @@
 
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewBag.Title = Resources.Resource.Delete;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -69,7 +69,7 @@
     }
 </style>
 
-<h2>Ви дійсно хочете видалити цю пісню?</h2>
+<h2>@Resources.Resource.SongConfirm</h2>
 
 <div class="row justify-content-center">
     <div class="col-md-4 mx-auto">
@@ -77,11 +77,11 @@
             <img class="card-img-top" src="@Url.Content(Model.Albums.AlbumCover)" alt="Album Cover">
             <div class="card-body">
                 <h5 class="card-title">@Model.Title</h5>
-                <p class="card-text"><strong>Виконавець/Гурт:</strong> @Model.Artists.Artist</p>
-                <p class="card-text"><strong>Альбом:</strong> @Model.Albums.Album</p>
-                <p class="card-text"><strong>Рік:</strong> @Model.Albums.Year</p>
-                <p class="card-text"><strong>Країна:</strong> @Model.Countries.Country</p>
-                <p class="card-text"><strong>Жанр:</strong> @Model.Genre.Name</p>
+                <p class="card-text"><strong>@Resources.Resource.ArtistHome:</strong> @Model.Artists.Artist</p>
+                <p class="card-text"><strong>@Resources.Resource.AlbumName:</strong> @Model.Albums.Album</p>
+                <p class="card-text"><strong>@Resources.Resource.AlbumYear:</strong> @Model.Albums.Year</p>
+                <p class="card-text"><strong>@Resources.Resource.CountryName:</strong> @Model.Countries.Country</p>
+                <p class="card-text"><strong>@Resources.Resource.GenreName:</strong> @Model.Genre.Name</p>
                 <audio controls>
                     <source src="@Url.Content(Model.MusicFile)" type="audio/mpeg">
                     Your browser does not support the audio element.
@@ -93,9 +93,9 @@
 
 <form asp-action="Delete">
     <input type="hidden" asp-for="SongId" />
-    <input type="submit" value="Видалити" class="btn btn-danger" />
+    <input type="submit" value="@Resources.Resource.Delete" class="btn btn-danger" />
 </form>
 
 <div class="back-action">
-    <a asp-controller="Home" class="btn btn-primary" asp-action="Index">Назад до списку</a>
+    <a asp-controller="Home" class="btn btn-primary" asp-action="Index">@Resources.Resource.BackToList</a>
 </div>

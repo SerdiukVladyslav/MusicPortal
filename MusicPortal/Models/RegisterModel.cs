@@ -4,21 +4,27 @@ namespace MusicPortal.Models
 {
     public class RegisterModel
     {
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "FirstNameRequired")]
         public string? FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "LastNameRequired")]
         public string? LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "LoginRequired")]
         public string? Login { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "PasswordRequired")]
         [DataType(DataType.Password)]
         public string? Password { get; set; }
 
-        [Required]
-        [Compare("Password", ErrorMessage = "Passwords do not match")]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "PasswordConfirmRequired")]
+        [Compare("Password", ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "PasswordCompare")]
         [DataType(DataType.Password)]
         public string? PasswordConfirm { get; set; }
     }

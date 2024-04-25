@@ -16,8 +16,10 @@ namespace MusicPortal.Models
 
         public string? Salt { get; set; }
 
-        [Required(ErrorMessage = "Поле 'AccessLevel' обов'язкове для заповнення")]
-        [Range(0, 2, ErrorMessage = "Рівень доступу має бути 0, 1 або 2")]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "AccessLevelRequired")]
+        [Range(0, 2, ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "AccessLevelLength")]
         public int AccessLevel { get; set; }
     }
 }

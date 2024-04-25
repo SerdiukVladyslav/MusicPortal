@@ -1,7 +1,7 @@
 ﻿@model MusicPortal.Models.User
 
 @{
-    ViewData["Title"] = "Users";
+    ViewBag.Title = Resources.Resource.Edit;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -82,42 +82,42 @@
     }
 </style>
 
-<h1>Редагування</h1>
+<h1>@Resources.Resource.Edit</h1>
 
 <form asp-controller="Account" asp-action="Edit" method="post" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <input type="hidden" asp-for="Id" />
 
     <div class="form-group">
-        <label asp-for="FirstName" class="control-label">Ім'я</label>
+        <label asp-for="FirstName" class="control-label">@Resources.Resource.FirstName</label>
         <input asp-for="FirstName" class="form-control" />
         <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="LastName" class="control-label">Прізвище</label>
+        <label asp-for="LastName" class="control-label">@Resources.Resource.LastName</label>
         <input asp-for="LastName" class="form-control" />
         <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="Login" class="control-label">Логін</label>
+        <label asp-for="Login" class="control-label">@Resources.Resource.UserLogin</label>
         <input asp-for="Login" class="form-control" />
         <span asp-validation-for="Login" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <label asp-for="AccessLevel" class="control-label">Рівень доступу</label>
+        <label asp-for="AccessLevel" class="control-label">@Resources.Resource.AccessLevel</label>
         <input asp-for="AccessLevel" class="form-control">
         <span asp-validation-for="AccessLevel" class="text-danger"></span>
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Зберегти" class="btn btn-primary" />
+        <input type="submit" value="@Resources.Resource.SaveButton" class="btn btn-primary" />
     </div>
 
     <div class="form-group">
-        <a asp-action="Index" class="btn btn-primary">Назад до списку</a>
+        <a asp-action="Index" class="btn btn-primary">@Resources.Resource.BackToList</a>
     </div>
 </form>
 

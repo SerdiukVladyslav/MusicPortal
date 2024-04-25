@@ -1,7 +1,7 @@
 ﻿@model MusicPortal.Models.Albums
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewBag.Title = Resources.Resource.Delete;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -77,26 +77,26 @@
     }
 </style>
 
-<h1>Видалення</h1>
+<h1>@Resources.Resource.Delete</h1>
 
-<h3>Ви дійсно хочете видалити цей альбом?</h3>
+<h3>@Resources.Resource.AlbumConfirm</h3>
 <div>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            Альбом
+            @Resources.Resource.AlbumName
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Album)
         </dd>
         <dt class="col-sm-2">
-            Обкладинка альбому
+            @Resources.Resource.AlbumCover
         </dt>
         <dd class="col-sm-10">
             <img src="@Url.Content(Model.AlbumCover)" alt="Album Cover" class="album-cover">
         </dd>
         <dt class="col-sm-2">
-            Рік
+            @Resources.Resource.AlbumYear
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Year)
@@ -105,10 +105,10 @@
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Видалити" class="btn btn-danger" />
+        <input type="submit" value="@Resources.Resource.Delete" class="btn btn-danger" />
     </form>
 </div>
 
 <div class="back-button-container">
-    <a asp-action="Index" class="btn btn-primary">Назад до списку</a>
+    <a asp-action="Index" class="btn btn-primary">@Resources.Resource.BackToList</a>
 </div>

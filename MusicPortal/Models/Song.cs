@@ -6,8 +6,10 @@ namespace MusicPortal.Models
     {
         public int SongId { get; set; }
 
-        [Required(ErrorMessage = "Поле 'Title' обов'язкове для заповнення")]
-        [StringLength(100, ErrorMessage = "Назва пісні повинна містити від 1 до 100 символів", MinimumLength = 1)]
+        [Required(ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "TitleRequired")]
+        [StringLength(100, ErrorMessageResourceType = typeof(Resources.Resource),
+            ErrorMessageResourceName = "TitleLength", MinimumLength = 1)]
         public string Title { get; set; }
 
         public int GenreId { get; set; }

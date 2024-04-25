@@ -1,7 +1,7 @@
 ﻿@model MusicPortal.Models.Albums
 
 @{
-    ViewData["Title"] = "Create";
+    ViewBag.Title = Resources.Resource.AddButton;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -82,32 +82,32 @@
     }
 </style>
 
-<h2>Альбоми</h2>
+<h2>@Resources.Resource.Albums</h2>
 
 <form asp-action="Create" asp-controller="Album" method="post" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
     <div class="form-group">
-        <label asp-for="Album" class="control-label">Альбом</label>
+        <label asp-for="Album" class="control-label">@Resources.Resource.AlbumName</label>
         <input asp-for="Album" class="form-control" />
         <span asp-validation-for="Album" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="AlbumCover" class="control-label">Обкладинка альбому</label>
+        <label asp-for="AlbumCover" class="control-label">@Resources.Resource.AlbumCover</label>
         <input type="file" asp-for="AlbumCover" class="form-control" name="cover" />
         <div asp-validation-summary="All" class="text-danger"></div>
     </div>
     <div class="form-group">
-        <label asp-for="Year" class="control-label">Рік</label>
+        <label asp-for="Year" class="control-label">@Resources.Resource.AlbumYear</label>
         <input asp-for="Year" class="form-control" />
         <span asp-validation-for="Year" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <input type="submit" value="Додати" class="btn btn-primary" />
+        <input type="submit" value="@Resources.Resource.AddButton" class="btn btn-primary" />
     </div>
 </form>
 
 <div>
-    <a asp-controller="Album" asp-action="Index" class="btn btn-primary">Назад до списку</a>
+    <a asp-controller="Album" asp-action="Index" class="btn btn-primary">@Resources.Resource.BackToList</a>
 </div>
 
 @section Scripts {

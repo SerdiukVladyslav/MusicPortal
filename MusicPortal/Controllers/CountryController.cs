@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MusicPortal.Filters;
 using MusicPortal.Models;
 
 namespace MusicPortal.Controllers
 {
+    [Culture]
     public class CountryController : Controller
     {
         private readonly MusicPortalContext _context;
@@ -15,12 +17,14 @@ namespace MusicPortal.Controllers
 
         public IActionResult Index()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             var countries = _context.Countries.ToList();
             return View(countries);
         }
 
         public IActionResult Create()
         {
+            HttpContext.Session.SetString("path", Request.Path);
             return View(new Countries());
         }
 
@@ -35,6 +39,7 @@ namespace MusicPortal.Controllers
 
         public async Task<IActionResult> Edit(int? id)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             if (id == null)
             {
                 return NotFound();
@@ -78,6 +83,7 @@ namespace MusicPortal.Controllers
 
         public async Task<IActionResult> Delete(int? id)
         {
+            HttpContext.Session.SetString("path", Request.Path);
             if (id == null)
             {
                 return NotFound();

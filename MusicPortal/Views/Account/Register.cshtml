@@ -1,7 +1,7 @@
 ﻿@model MusicPortal.Models.RegisterModel
 
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = Resources.Resource.Register;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -54,7 +54,7 @@
     }
 </style>
 
-<h1>Реєстрація</h1>
+<h1>@Resources.Resource.Register</h1>
 
 <hr />
 <div class="row">
@@ -62,32 +62,32 @@
         <form asp-action="Register">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="FirstName" class="control-label">Ім'я</label>
+                <label asp-for="FirstName" class="control-label">@Resources.Resource.FirstName</label>
                 <input asp-for="FirstName" class="form-control" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LastName" class="control-label">Прізвище</label>
+                <label asp-for="LastName" class="control-label">@Resources.Resource.LastName</label>
                 <input asp-for="LastName" class="form-control" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Login" class="control-label">Логін</label>
+                <label asp-for="Login" class="control-label">@Resources.Resource.UserLogin</label>
                 <input asp-for="Login" class="form-control" />
                 <span asp-validation-for="Login" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label">Пароль</label>
+                <label asp-for="Password" class="control-label">@Resources.Resource.Password</label>
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PasswordConfirm" class="control-label">Підтвердження паролю</label>
+                <label asp-for="PasswordConfirm" class="control-label">@Resources.Resource.PasswordConfirm</label>
                 <input asp-for="PasswordConfirm" class="form-control" />
                 <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Зареєструватись" class="btn btn-primary" />
+                <input type="submit" value="@Resources.Resource.RegisterButton" class="btn btn-primary" />
             </div>
         </form>
     </div>
