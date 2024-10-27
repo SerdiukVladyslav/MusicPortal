@@ -63,7 +63,7 @@ namespace MusicPortal.Controllers
             var genre = await _context.Genres.FindAsync(song.GenreId);
             var artists = await _context.Artists.FindAsync(song.ArtistsId);
             var albums = await _context.Albums.FindAsync(song.AlbumsId);
-            var country = await _context.Countries.FindAsync(song.CountryId);
+            var country = await _context.Countries.FindAsync(song.CountriesId);
 
             song.Genre = genre;
             song.Artists = artists;
@@ -125,7 +125,7 @@ namespace MusicPortal.Controllers
                 var genre = await _context.Genres.FindAsync(song.GenreId);
                 var artists = await _context.Artists.FindAsync(song.ArtistsId);
                 var albums = await _context.Albums.FindAsync(song.AlbumsId);
-                var country = await _context.Countries.FindAsync(song.CountryId);
+                var country = await _context.Countries.FindAsync(song.CountriesId);
 
                 song.Genre = genre;
                 song.Artists = artists;

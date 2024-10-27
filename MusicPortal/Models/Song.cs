@@ -21,7 +21,7 @@ namespace MusicPortal.Models
         public int AlbumsId { get; set; }
         public Albums Albums { get; set; }
 
-        public int CountryId { get; set; }
+        public int CountriesId { get; set; }
         public Countries Countries { get; set; }
 
         public string? MusicFile { get; set; }
